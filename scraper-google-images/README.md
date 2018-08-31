@@ -1,4 +1,4 @@
-# edu12-scraping-google-images
+# scraper-google-images
 
 ## About
 
