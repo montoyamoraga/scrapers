@@ -2,15 +2,17 @@
 
 ## About
 
-scrapers is a collection of software written by [Aarón Montoya-Moraga](http://montoyamoraga.io/).
+scrapers is a collection of free/libre open-source software written by [Aarón Montoya-Moraga](http://montoyamoraga.io/).
 
-scrapers is both a tool for building databases and also is written in a way that encourages learning about the web, biases and user interaction.
+scrapers is both a tool for building databases and and educational resource for learning scraping.
 
-scrapers tries to be heavily documented, clean, and educational, but it doesn't guarantee that it will work.
+scrapers is educational because it tries to be heavily documented, clean, and easy to follow.
+
+scrapers performs the scraping in an explicit way, it shows you the browser going through the data, instead of running in the background, thus being very open in the way it works, which can be used for both documentation and live performance.
 
 ## Technical details
 
-All of these scrapers were written using [Python](https://www.python.org/) and [Selenium](https://www.seleniumhq.org/).
+All of these scrapers were written using [Python](https://www.python.org/), [Selenium](https://www.seleniumhq.org/), and [ChromeDriver](http://chromedriver.chromium.org/).
 
 ## Contents
 
@@ -19,6 +21,12 @@ All of these scrapers were written using [Python](https://www.python.org/) and [
 * google-images
 * instagram
 * mugshots
+
+## Installation and prerrequisites
+
+* Install Python2 and Python3
+* Install Homebrew if in Mac
+* Install Chromedriver
 
 ## Acknowledgements
 
