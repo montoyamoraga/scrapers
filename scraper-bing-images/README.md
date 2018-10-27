@@ -20,7 +20,7 @@ In order to use the code, you have two options, either download or clone this re
 *  Clone this repository: open terminal, cd to a location on your computer and run the following command
 
 ```bash
-git clone https://github.com/montoyamoraga/edu12-scraping-google-images.git
+git clone https://github.com/montoyamoraga/scrapers/
 ```
 
 ## Terminal / Command prompt
