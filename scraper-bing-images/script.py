@@ -123,7 +123,7 @@ def scrape(subject):
     time.sleep(2.0)
 
     # point to to iframe
-    driver.switch_to_frame("OverlayIFrame")
+    driver.switch_to.frame("OverlayIFrame")
 
     # wait
     time.sleep(1.0)
@@ -146,11 +146,22 @@ def scrape(subject):
     time.sleep(1.0)
 
     # get rid of popup
+    # find popup
     popup = driver.find_element_by_xpath("//div[@class='action  exp nofocus']//span")
-    popup.click()
+    # if there is a popup, click on it
+    try:
+        popup.click()
+    except:
+        print("didn't find any popup")
+
     time.sleep(1.0)
+
+    # get rid of quit
     quit = driver.find_element_by_xpath("//div[@class='Default']//div[@class='action  col nofocus']")
-    quit.click()
+    try:
+        quit.click()
+    except:
+        print("didn't find quit")
 
     # find the following ones until it breaks
     while counter < maxImages and (currentFails < maxFails):
@@ -182,8 +193,6 @@ def scrape(subject):
 
             # reset counter of fails
             currentFails = 0
-
-
 
         except:
             print("couldnt download the image")
