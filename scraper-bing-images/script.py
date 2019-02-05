@@ -157,11 +157,11 @@ def scrape(subject):
     time.sleep(1.0)
 
     # get rid of quit
-    quit = driver.find_element_by_xpath("//div[@class='Default']//div[@class='action  col nofocus']")
-    try:
-        quit.click()
-    except:
-        print("didn't find quit")
+#    quit = driver.find_element_by_xpath("//div[@class='Default']//div[@class='action  col nofocus']")
+#    try:
+#        quit.click()
+#    except:
+#        print("didn't find quit")
 
     # find the following ones until it breaks
     while counter < maxImages and (currentFails < maxFails):
