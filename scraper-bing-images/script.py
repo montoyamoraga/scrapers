@@ -238,8 +238,9 @@ def convertToJPG():
 # call the function for scraping
 scrape(scrapeSubject)
 
+print("Done scraping, converting all images now to jpg")
 # convert all the images to JPG format
 convertToJPG()
 
 # final message, goodbye, the end
-print("finished scraping yay")
+print("finished scraping and converting to jpg. Yay 🎉")
