@@ -133,8 +133,15 @@ def scrape(subject):
 
     # retrieve the src
     src = image.get_attribute('src')
+    local = auxSubject + "_" +  str(len(downloaded))
 
-    urllib.request.urlretrieve(src, auxSubject + "_" +  str(len(downloaded)))
+    # Fix to get around HTTP Error 403: Forbidden errors, aka the sites with the original src img give 403 errors to direct downloads.
+
+    opener=urllib.request.build_opener()
+    opener.addheaders=[('User-Agent','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1941.0 Safari/537.36')]
+    urllib.request.install_opener(opener)
+
+    urllib.request.urlretrieve(src, local)
 
     downloaded.append(src)
 
@@ -157,11 +164,11 @@ def scrape(subject):
     time.sleep(1.0)
 
     # get rid of quit
-    quit = driver.find_element_by_xpath("//div[@class='Default']//div[@class='action  col nofocus']")
-    try:
-        quit.click()
-    except:
-        print("didn't find quit")
+#    quit = driver.find_element_by_xpath("//div[@class='Default']//div[@class='action  col nofocus']")
+#    try:
+#        quit.click()
+#    except:
+#        print("didn't find quit")
 
     # find the following ones until it breaks
     while counter < maxImages and (currentFails < maxFails):
@@ -178,6 +185,7 @@ def scrape(subject):
 
             # retrieve the src
             src = image.get_attribute('src')
+            local = auxSubject + "_" +  str(len(downloaded))
 
             print(src)
 
@@ -185,7 +193,7 @@ def scrape(subject):
             downloaded.append(src)
 
             # download
-            urllib.request.urlretrieve(src, auxSubject + "_" +  str(len(downloaded)))
+            urllib.request.urlretrieve(src, local)
 
             print("downloaded " + str(len(downloaded)))
 
@@ -230,8 +238,9 @@ def convertToJPG():
 # call the function for scraping
 scrape(scrapeSubject)
 
+print("Done scraping, converting all images now to jpg")
 # convert all the images to JPG format
 convertToJPG()
 
 # final message, goodbye, the end
-print("finished scraping yay")
+print("finished scraping and converting to jpg. Yay 🎉")
